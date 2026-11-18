@@ -97,7 +97,7 @@ export const photos: PhotoItem[] = [
   // Film
   {
     id: "f1",
-    src: "/photo/film/карандашЫ.jpg",
+    src: "/photo/film/текстура дерева во мху.jpg",
     alt: "Film photo 1",
     type: "film",
   },
@@ -119,6 +119,91 @@ export const photos: PhotoItem[] = [
     alt: "Film photo 4",
     type: "film",
   },
+   {
+    id: "f5",
+    src: "/photo/film/карандаш.jpg",
+    alt: "Film photo 5",
+    type: "film",
+  },
+ {
+    id: "f6",
+    src: "/photo/film/небесные шаги.jpg",
+    alt: "Film photo 6",
+    type: "film",
+  },
+   {
+    id: "f7",
+    src: "/photo/film/медуза.jpg",
+    alt: "Film photo 7",
+    type: "film",
+  },
+   {
+    id: "f8",
+    src: "/photo/film/там рыбы плачут , а у спрутов в головах дыра.jpg",
+    alt: "Film photo 8",
+    type: "film",
+  },
+ {
+    id: "f9",
+    src: "/photo/film/подгорцы.jpg",
+    alt: "Film photo 9",
+    type: "film",
+  },
+   {
+    id: "f10",
+    src: "/photo/film/рожь.jpg",
+    alt: "Film photo 10",
+    type: "film",
+  },
+   {
+    id: "f11",
+    src: "/photo/film/Одесса поездная",
+    alt: "Film photo 11",
+    type: "film",
+  },
+ {
+    id: "f12",
+    src: "/photo/film/вся краска иссякла.jpg",
+    alt: "Film photo 12",
+    type: "film",
+  },
+   {
+    id: "f13",
+    src: "/photo/film/нападение.png",
+    alt: "Film photo 13",
+    type: "film",
+  },
+   {
+    id: "f14",
+    src: "/photo/film/теля.png",
+    alt: "Film photo 14",
+    type: "film",
+  },
+ {
+    id: "f15",
+    src: "/photo/film/не пройти терновник загородил путь.jpg",
+    alt: "Film photo 15",
+    type: "film",
+  },
+   {
+    id: "f16",
+    src: "/photo/film/Между деревьев Юна.jpg",
+    alt: "Film photo 16",
+    type: "film",
+  },
+   {
+    id: "f17",
+    src: "/photo/film/бегущие.jpg",
+    alt: "Film photo 17",
+    type: "film",
+  },
+ {
+    id: "f18",
+    src: "/photo/film/без имени.jpg",
+    alt: "Film photo 18",
+    type: "film",
+  },
+   
   // Digital
   // {
   //   id: "d1",
