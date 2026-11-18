@@ -93,7 +93,7 @@ export const photos: PhotoItem[] = [
   // Film
   {
     id: "f1",
-    src: "/photo/film/1.jpg",
+    src: "./photo/film/1.jpg",
     alt: "Film photo 1",
     type: "film",
   },
