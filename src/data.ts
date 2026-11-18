@@ -97,18 +97,28 @@ export const photos: PhotoItem[] = [
   // Film
   {
     id: "f1",
-    src: "/photo/film/карандаш.jpg",
+    src: "/photo/film/карандашЫ.jpg",
     alt: "Film photo 1",
     type: "film",
   },
-  // Добавляй новые так:
-  // {
-  //   id: "f2",
-  //   src: "/photo/film/2.jpg",
-  //   alt: "Film photo 2",
-  //   type: "film",
-  // },
-
+ {
+    id: "f2",
+    src: "/photo/film/Сергеевка.png",
+    alt: "Film photo 2",
+    type: "film",
+  },
+ {
+    id: "f3",
+    src: "/photo/film/треугольник в переходе с тенью.jpg",
+    alt: "Film photo 3",
+    type: "film",
+  },
+   {
+    id: "f4",
+    src: "/photo/film/фейерверк.jpg",
+    alt: "Film photo 4",
+    type: "film",
+  },
   // Digital
   // {
   //   id: "d1",
