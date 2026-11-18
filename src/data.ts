@@ -93,7 +93,7 @@ export const photos: PhotoItem[] = [
   // Film
   {
     id: "f1",
-    src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+    src: "/photo/film/1.jpg",
     alt: "Film photo 1",
     type: "film",
   },
