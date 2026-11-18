@@ -21,10 +21,10 @@ export type PhotoItem = {
 export const videos: VideoItem[] = [
   {
     id: "1",
-    title: "Commercial — Brand Film",
-    description: "Рекламный ролик / Advertising film",
+    title: "Документальний этюд",
+    description: "",
     provider: "youtube",
-    videoId: "dQw4w9WgXcQ", // placeholder — замени на свой ID
+    videoId: "k63B4TOyA", // placeholder — замени на свой ID
   },
   {
     id: "2",
