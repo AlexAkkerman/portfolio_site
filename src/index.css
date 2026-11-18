@@ -398,12 +398,18 @@ button {
 
 .photo-item {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1; /* квадрат — под плёночные фото */
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-card);
 }
+
+/* если цифровые будут другого формата:
+.photo-item.digital {
+  aspect-ratio: 3 / 4;
+}
+*/
 
 .photo-item img {
   width: 100%;
