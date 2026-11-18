@@ -1,13 +1,18 @@
+export type VideoCategory = "action" | "documentary" | "youtube";
+
 export type VideoItem = {
   id: string;
   title: string;
   description: string;
+  category: VideoCategory;
   // YouTube: use "youtube" + videoId
   // Vimeo: use "vimeo" + videoId
   provider: "youtube" | "vimeo";
   videoId: string;
-  // Optional custom thumbnail (if empty — uses provider default via embed)
+  // Optional custom thumbnail (if empty — uses provider default)
   thumbnail?: string;
+  // Просмотры (для вкладки YouTube). Обновляй вручную или через API.
+  views?: number;
 };
 
 export type PhotoItem = {
@@ -19,33 +24,67 @@ export type PhotoItem = {
 
 // ——— Замени на свои работы ———
 export const videos: VideoItem[] = [
+  // Action
   {
-    id: "1",
-    title: "Документальний этюд",
-    description: "",
-    provider: "youtube",
-    videoId: "9-k63B4TOyA", // placeholder — замени на свой ID
-  },
-  {
-    id: "2",
-    title: "Music Video",
-    description: "Клип / Music video",
+    id: "a1",
+    title: "Action Reel 2025",
+    description: "Динамичный экшен / Action sequence",
+    category: "action",
     provider: "youtube",
     videoId: "dQw4w9WgXcQ",
   },
   {
-    id: "3",
-    title: "Motion Design Reel",
-    description: "Шоурил motion-работ",
+    id: "a2",
+    title: "Chase Sequence",
+    description: "Погоня / Chase",
+    category: "action",
+    provider: "youtube",
+    videoId: "dQw4w9WgXcQ",
+  },
+  // Documentary
+  {
+    id: "d1",
+    title: "City Stories",
+    description: "Документальный этюд",
+    category: "documentary",
+    provider: "youtube",
+    videoId: "dQw4w9WgXcQ",
+  },
+  {
+    id: "d2",
+    title: "Portrait of a City",
+    description: "Городской портрет",
+    category: "documentary",
     provider: "vimeo",
-    videoId: "148751763", // пример
+    videoId: "148751763",
   },
+  // YouTube
   {
-    id: "4",
-    title: "Short Film",
-    description: "Короткометражка",
+    id: "y1",
+    title: "How I Edit Action",
+    description: "Туториал по монтажу",
+    category: "youtube",
     provider: "youtube",
     videoId: "dQw4w9WgXcQ",
+    views: 128400,
+  },
+  {
+    id: "y2",
+    title: "My Gear Setup 2025",
+    description: "Обзор оборудования",
+    category: "youtube",
+    provider: "youtube",
+    videoId: "dQw4w9WgXcQ",
+    views: 45200,
+  },
+  {
+    id: "y3",
+    title: "Color Grading Tips",
+    description: "Советы по цветокоррекции",
+    category: "youtube",
+    provider: "youtube",
+    videoId: "dQw4w9WgXcQ",
+    views: 89100,
   },
 ];
 

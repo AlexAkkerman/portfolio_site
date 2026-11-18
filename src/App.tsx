@@ -1,12 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
 import { translations, type Lang } from "./i18n";
-import { videos, photos, type PhotoItem } from "./data";
+import { videos, photos, type PhotoItem, type VideoCategory } from "./data";
 import "./index.css";
+
+function formatViews(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
+  return String(n);
+}
 
 function App() {
   const [lang, setLang] = useState<Lang>("uk");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [videoTab, setVideoTab] = useState<VideoCategory>("action");
   const [photoTab, setPhotoTab] = useState<"film" | "digital">("film");
   const [playingId, setPlayingId] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<{
@@ -57,6 +64,7 @@ function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightbox, closeLightbox, navigateLightbox]);
 
+  const filteredVideos = videos.filter((v) => v.category === videoTab);
   const filteredPhotos = photos.filter((p) => p.type === photoTab);
 
   const getEmbedUrl = (provider: string, id: string, autoplay = false) => {
@@ -164,8 +172,38 @@ function App() {
           <h2 className="section-title">{t.videos.title}</h2>
           <p className="section-subtitle">{t.videos.subtitle}</p>
 
+          <div className="photo-tabs" style={{ marginBottom: 36 }}>
+            <button
+              className={`tab-btn ${videoTab === "action" ? "active" : ""}`}
+              onClick={() => {
+                setVideoTab("action");
+                setPlayingId(null);
+              }}
+            >
+              {t.videos.action}
+            </button>
+            <button
+              className={`tab-btn ${videoTab === "documentary" ? "active" : ""}`}
+              onClick={() => {
+                setVideoTab("documentary");
+                setPlayingId(null);
+              }}
+            >
+              {t.videos.documentary}
+            </button>
+            <button
+              className={`tab-btn ${videoTab === "youtube" ? "active" : ""}`}
+              onClick={() => {
+                setVideoTab("youtube");
+                setPlayingId(null);
+              }}
+            >
+              {t.videos.youtube}
+            </button>
+          </div>
+
           <div className="videos-grid">
-            {videos.map((v) => {
+            {filteredVideos.map((v) => {
               const isPlaying = playingId === v.id;
               return (
                 <article key={v.id} className="video-card">
@@ -201,6 +239,11 @@ function App() {
                   <div className="video-info">
                     <h3>{v.title}</h3>
                     <p>{v.description}</p>
+                    {v.category === "youtube" && typeof v.views === "number" && (
+                      <p className="video-views">
+                        {formatViews(v.views)} {t.videos.views}
+                      </p>
+                    )}
                   </div>
                 </article>
               );
