@@ -157,7 +157,7 @@ export const photos: PhotoItem[] = [
   },
    {
     id: "f11",
-    src: "/photo/film/Одесса поездная",
+    src: "/photo/film/Одесса поездная.jpg",
     alt: "Film photo 11",
     type: "film",
   },
@@ -175,7 +175,7 @@ export const photos: PhotoItem[] = [
   },
    {
     id: "f14",
-    src: "/photo/film/теля.png",
+    src: "/photo/film/без имени.jpg",
     alt: "Film photo 14",
     type: "film",
   },
@@ -199,7 +199,7 @@ export const photos: PhotoItem[] = [
   },
  {
     id: "f18",
-    src: "/photo/film/без имени.jpg",
+    src: "/photo/film/теля.png",
     alt: "Film photo 18",
     type: "film",
   },
