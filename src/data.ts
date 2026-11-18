@@ -24,7 +24,7 @@ export const videos: VideoItem[] = [
     title: "Документальний этюд",
     description: "",
     provider: "youtube",
-    videoId: "k63B4TOyA", // placeholder — замени на свой ID
+    videoId: "9-k63B4TOyA", // placeholder — замени на свой ID
   },
   {
     id: "2",
