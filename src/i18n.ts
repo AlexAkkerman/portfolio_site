@@ -11,7 +11,7 @@ export const translations = {
     hero: {
       label: "Portfolio",
       title: "Alex Mazurik",
-      role: "Cinematographer / Photographer",
+      role: "Video Editor / Motion Designer",
       desc: "Створюю відео, motion-графіку та фотографію. Від рекламних роликів до кінематографічних історій.",
       ctaVideos: "Дивитися роботи",
       ctaContact: "Зв'язатися",
@@ -38,6 +38,8 @@ export const translations = {
       stats: {
         projects: "Проєктів",
         years: "Років досвіду",
+        clients: "Клієнтів",
+        awards: "Нагород",
       },
     },
     contact: {
@@ -91,6 +93,8 @@ export const translations = {
       stats: {
         projects: "Проектов",
         years: "Лет опыта",
+        clients: "Клиентов",
+        awards: "Наград",
       },
     },
     contact: {
@@ -144,6 +148,8 @@ export const translations = {
       stats: {
         projects: "Projects",
         years: "Years experience",
+        clients: "Clients",
+        awards: "Awards",
       },
     },
     contact: {

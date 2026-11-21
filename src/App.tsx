@@ -33,6 +33,24 @@ function App() {
     document.documentElement.lang = lang === "uk" ? "uk" : lang;
   }, [lang]);
 
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [lang, videoTab, photoTab]);
+
   const openLightbox = (items: PhotoItem[], index: number) => {
     setLightbox({ items, index });
     document.body.style.overflow = "hidden";
@@ -169,10 +187,10 @@ function App() {
 
       <section id="videos" className="section">
         <div className="container">
-          <h2 className="section-title">{t.videos.title}</h2>
-          <p className="section-subtitle">{t.videos.subtitle}</p>
+          <h2 className="section-title reveal">{t.videos.title}</h2>
+          <p className="section-subtitle reveal reveal-delay-1">{t.videos.subtitle}</p>
 
-          <div className="photo-tabs" style={{ marginBottom: 36 }}>
+          <div className="photo-tabs reveal reveal-delay-2" style={{ marginBottom: 36 }}>
             <button
               className={`tab-btn ${videoTab === "action" ? "active" : ""}`}
               onClick={() => {
@@ -202,7 +220,7 @@ function App() {
             </button>
           </div>
 
-          <div className="videos-grid">
+          <div className="videos-grid reveal reveal-delay-3">
             {filteredVideos.map((v) => {
               const isPlaying = playingId === v.id;
               return (
@@ -258,10 +276,10 @@ function App() {
         style={{ background: "var(--bg-elevated)" }}
       >
         <div className="container">
-          <h2 className="section-title">{t.photos.title}</h2>
-          <p className="section-subtitle">{t.photos.subtitle}</p>
+          <h2 className="section-title reveal">{t.photos.title}</h2>
+          <p className="section-subtitle reveal reveal-delay-1">{t.photos.subtitle}</p>
 
-          <div className="photo-tabs">
+          <div className="photo-tabs reveal reveal-delay-2">
             <button
               className={`tab-btn ${photoTab === "film" ? "active" : ""}`}
               onClick={() => setPhotoTab("film")}
@@ -276,11 +294,11 @@ function App() {
             </button>
           </div>
 
-          <div className="photos-grid">
+          <div className="photos-grid reveal reveal-delay-3">
             {filteredPhotos.map((photo, i) => (
               <div
                 key={photo.id}
-                className="photo-item"
+                className={`photo-item ${photo.type}`}
                 onClick={() => openLightbox(filteredPhotos, i)}
               >
                 <img src={photo.src} alt={photo.alt} loading="lazy" />
@@ -293,13 +311,13 @@ function App() {
       <section id="about" className="section">
         <div className="container">
           <div className="about-grid">
-            <div>
+            <div className="reveal">
               <div className="about-label">{t.about.label}</div>
               <h2 className="section-title" style={{ marginBottom: 0 }}>
                 {t.about.title}
               </h2>
             </div>
-            <div className="about-text">
+            <div className="about-text reveal reveal-delay-2">
               <p>{t.about.p1}</p>
               <p>{t.about.p2}</p>
               <div className="about-stats">
@@ -331,10 +349,10 @@ function App() {
         style={{ background: "var(--bg-elevated)" }}
       >
         <div className="container">
-          <h2 className="section-title">{t.contact.title}</h2>
-          <p className="section-subtitle">{t.contact.subtitle}</p>
+          <h2 className="section-title reveal">{t.contact.title}</h2>
+          <p className="section-subtitle reveal reveal-delay-1">{t.contact.subtitle}</p>
 
-          <div className="contact-inner">
+          <div className="contact-inner reveal reveal-delay-2">
             <div>
               <div className="contact-links">
                 <a

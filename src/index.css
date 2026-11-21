@@ -1,17 +1,20 @@
 :root {
-  --bg: #080808;
-  --bg-elevated: #111111;
-  --bg-card: #141414;
-  --border: #222222;
-  --text: #e8e8e8;
-  --text-muted: #888888;
-  --text-dim: #555555;
-  --accent: #c9a86c;
-  --accent-soft: rgba(201, 168, 108, 0.15);
+  --bg: #f7f5f1;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --border: #e6e1d8;
+  --text: #1c1b19;
+  --text-muted: #6e6860;
+  --text-dim: #9a948c;
+  --accent: #b08d4a;
+  --accent-soft: rgba(176, 141, 74, 0.12);
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
   --radius: 12px;
   --header-h: 72px;
+  --shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.04);
+  --shadow-md: 0 8px 30px rgba(28, 27, 25, 0.06);
+  --shadow-lg: 0 20px 50px rgba(28, 27, 25, 0.08);
 }
 
 *,
@@ -89,14 +92,16 @@ button {
   right: 0;
   height: var(--header-h);
   z-index: 100;
-  background: rgba(8, 8, 8, 0.75);
+  background: rgba(247, 245, 241, 0.8);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .header.scrolled {
   border-bottom-color: var(--border);
+  background: rgba(247, 245, 241, 0.92);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-inner {
@@ -179,8 +184,8 @@ button {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 168, 108, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 168, 108, 0.04), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(176, 141, 74, 0.14), transparent),
+    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(176, 141, 74, 0.06), transparent);
   pointer-events: none;
 }
 
@@ -239,12 +244,15 @@ button {
 
 .btn-primary {
   background: var(--text);
-  color: var(--bg);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
   background: var(--accent);
-  color: var(--bg);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-ghost {
@@ -269,18 +277,20 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: border-color 0.25s, transform 0.25s;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s;
 }
 
 .video-card:hover {
-  border-color: #333;
-  transform: translateY(-2px);
+  border-color: #d4cfc4;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .video-thumb {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: #0d0d0d;
+  background: #eae6df;
   overflow: hidden;
 }
 
@@ -403,6 +413,13 @@ button {
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+}
+
+.photo-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 
 /* если цифровые будут другого формата:
@@ -538,6 +555,13 @@ button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .stat-value {
@@ -575,12 +599,15 @@ button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color 0.2s, background 0.2s;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .contact-link:hover {
-  border-color: #333;
+  border-color: #d4cfc4;
   background: var(--bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .contact-link svg {
@@ -607,18 +634,19 @@ button {
 .form-group textarea {
   width: 100%;
   padding: 14px 16px;
-  background: var(--bg-card);
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text);
   font: inherit;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #444;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .form-group textarea {
@@ -677,5 +705,67 @@ button {
   .photos-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+}
+
+
+/* ——— Motion / reveal ——— */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+.hero-content {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.btn {
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tab-btn {
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .hero-content,
+  .video-card,
+  .photo-item,
+  .btn,
+  .stat,
+  .contact-link {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
