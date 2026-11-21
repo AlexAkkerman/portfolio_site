@@ -769,3 +769,89 @@ button {
     transform: none !important;
   }
 }
+
+/* ——— Ambient purple blobs ——— */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: min(52vw, 520px);
+  height: min(52vw, 520px);
+  top: -8%;
+  left: -6%;
+  background: radial-gradient(circle, rgba(124, 92, 214, 0.55) 0%, rgba(99, 102, 241, 0.2) 55%, transparent 70%);
+  animation: drift1 28s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: min(42vw, 420px);
+  height: min(42vw, 420px);
+  top: 35%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.45) 0%, rgba(139, 92, 246, 0.18) 50%, transparent 70%);
+  animation: drift2 34s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: min(36vw, 360px);
+  height: min(36vw, 360px);
+  bottom: 5%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, rgba(99, 102, 241, 0.15) 55%, transparent 70%);
+  animation: drift3 32s ease-in-out infinite alternate;
+}
+
+.blob-4 {
+  width: min(28vw, 280px);
+  height: min(28vw, 280px);
+  top: 12%;
+  left: 48%;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.35) 0%, rgba(165, 180, 252, 0.12) 55%, transparent 70%);
+  animation: drift4 24s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6%, 10%) scale(1.08); }
+}
+
+@keyframes drift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-8%, -6%) scale(1.12); }
+}
+
+@keyframes drift3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10%, -8%) scale(0.94); }
+}
+
+@keyframes drift4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5%, 12%) scale(1.1); }
+}
+
+/* UI above ambient layer */
+.header { z-index: 100; }
+.hero,
+.section,
+.footer { position: relative; z-index: 1; }
+.lightbox { z-index: 200; }
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+  }
+}

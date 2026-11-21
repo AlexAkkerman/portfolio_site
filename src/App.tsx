@@ -115,6 +115,14 @@ function App() {
 
   return (
     <>
+      {/* Ambient floating blobs */}
+      <div className="ambient" aria-hidden="true">
+        <span className="blob blob-1" />
+        <span className="blob blob-2" />
+        <span className="blob blob-3" />
+        <span className="blob blob-4" />
+      </div>
+
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="container header-inner">
           <a href="#" className="logo">
