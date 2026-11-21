@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { translations, type Lang } from "./i18n";
 import { videos, photos, type PhotoItem, type VideoCategory } from "./data";
+import Particles from "./Particles";
 import "./index.css";
 
 function formatViews(n: number): string {
@@ -115,13 +116,7 @@ function App() {
 
   return (
     <>
-      {/* Ambient floating blobs */}
-      <div className="ambient" aria-hidden="true">
-        <span className="blob blob-1" />
-        <span className="blob blob-2" />
-        <span className="blob blob-3" />
-        <span className="blob blob-4" />
-      </div>
+      <Particles />
 
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="container header-inner">
