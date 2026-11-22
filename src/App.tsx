@@ -57,7 +57,6 @@ function App() {
     const hero = document.querySelector(".hero");
     if (!hero) return;
     
-    hero.style.transitionDelay = "0s";
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
