@@ -52,6 +52,27 @@ function App() {
     return () => io.disconnect();
   }, [lang, videoTab, photoTab]);
 
+  // Dramatic entrance for Hero section on mount
+  useEffect(() => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    
+    hero.style.transitionDelay = "0s";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            hero.classList.add("entrance-active");
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25, rootMargin: "-100px" }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   const openLightbox = (items: PhotoItem[], index: number) => {
     setLightbox({ items, index });
     document.body.style.overflow = "hidden";
