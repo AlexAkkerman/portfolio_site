@@ -146,16 +146,24 @@ function App() {
 
           <nav className={`nav ${menuOpen ? "open" : ""}`}>
             <a href="#videos" onClick={() => setMenuOpen(false)}>
-              {t.nav.videos}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M21 4V5h1.5a1.5 1.5 0 0 1 1.5 1.5V19.5a1.5 1.5 0 0 1-1.5 1.5H5.5a1.5 1.5 0 0 1-1.5-1.5V5.5a1.5 1.5 0 0 1 1.5-1.5H7v-1.5a1.5 1.5 0 0 1 3 0v1.5h9z"/>
+              </svg>
             </a>
             <a href="#photos" onClick={() => setMenuOpen(false)}>
-              {t.nav.photos}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.75-1.5 2.75 1.5L17.5 12 14.25 10.5l2.75-1.5L16.5 10 13.25 8.5 10.5 10 7.75 8.5 5 10l3.25 1.5-2.75 1.5z"/>
+              </svg>
             </a>
             <a href="#about" onClick={() => setMenuOpen(false)}>
-              {t.nav.about}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+              </svg>
             </a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>
-              {t.nav.contact}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
             </a>
           </nav>
 

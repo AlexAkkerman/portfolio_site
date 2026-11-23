@@ -131,11 +131,11 @@ button {
 .nav a {
   font-size: 0.9rem;
   color: var(--text-muted);
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
 
 .nav a:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .lang-switch {
