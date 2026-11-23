@@ -128,10 +128,30 @@ button {
   gap: 28px;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
 .nav a {
   font-size: 0.9rem;
   color: var(--text-muted);
-  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav a:hover {
+  color: var(--accent);
 }
 
 .nav a:hover {
